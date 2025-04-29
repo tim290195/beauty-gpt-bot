@@ -1,15 +1,14 @@
 
 const { Telegraf } = require("telegraf");
-const { Configuration, OpenAIApi } = require("openai");
+const OpenAI = require("openai");
 
 require("dotenv").config();
 
 const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
 bot.start((ctx) => ctx.reply("Привет, я бот Beauty GPT! Напиши, что тебе нужно."));
 
